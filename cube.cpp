@@ -42,7 +42,7 @@ void calcSurface(float cubeX, float cubeY, float cubeZ, int ch) {
 
     ooz = 1/z;
 
-    xp = (int) (width/2 + K1 * ooz * x * 2);
+    xp = (int) (width/2 - 2 * cubeWidth + K1 * ooz * x * 2);
     yp = (int) (height/2 + K1 * ooz * y);
 
     idx = xp + yp * width;
@@ -65,7 +65,12 @@ int main()
 
         for(float cubeX = -cubeWidth; cubeX < cubeWidth; cubeX += incrementSpeed) { 
             for(float cubeY = - cubeWidth; cubeY < cubeWidth; cubeY += incrementSpeed ) { 
-                calcSurface(cubeX, cubeY, -cubeWidth, '#');
+                calcSurface(cubeX, cubeY, -cubeWidth, '.');
+                calcSurface(cubeWidth, cubeY, cubeX, '$');
+                calcSurface(-cubeWidth, cubeY, -cubeX, '~');
+                calcSurface(-cubeX, cubeY, cubeWidth, '#');
+                calcSurface(cubeX, -cubeWidth, -cubeY , ';'); 
+                calcSurface(cubeX, cubeWidth, cubeY , '+'); 
             }
         }
         std::cout << "\x1b[H";
@@ -76,6 +81,8 @@ int main()
 
         A+= 0.005; 
         B += 0.005; 
+        usleep(1000);
+
 
     }
 
