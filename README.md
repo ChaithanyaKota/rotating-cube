@@ -1,1 +1,1 @@
-# rotating-cube
+# rotating_cube
