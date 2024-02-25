@@ -1,4 +1,4 @@
-# rotating_cube
+# ASCII Rotating Cube
 
 
 
